@@ -118,18 +118,22 @@ gobackBtn.addEventListener('click', ()=>{
       });
   }
   
+ document.getElementById("search").addEventListener('input', ()=>{
+    filterPostOffices();
+  })
   function filterPostOffices() {
+    
+    
     const search = document.getElementById("search");
     let searchKey = search.value.trim().toLowerCase();
 
-    const postOfficeList = document.getElementById("filter-card");
-    const listItems = postOfficeList.getElementsByTagName("ul");
+    const listItems = document.getElementsByTagName("ul");
   
     // Filter the post offices based on the search box input
     for (let i = 0; i < listItems.length; i++) {
       const listItem = listItems[i];
       const text = listItem.textContent || listItem.innerText;
-      if (text.toUpperCase().indexOf(searchKey) > -1) {
+      if (text.toLowerCase().indexOf(searchKey) > -1) {
         listItem.style.display = "";
       } else {
         listItem.style.display = "none";
