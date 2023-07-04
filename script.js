@@ -23,7 +23,7 @@ getInfoBtn.addEventListener('click', ()=>{
       .then((res) => res.json())
       .then((data) => {
         let ipAddress = data.ip;
-  
+        ipField.innerText=data.ip;
         // Fetch additional information based on the IP address
         fetch(`https://ipinfo.io/${ipAddress}?token=a65aa5704d8782`)
           .then((response) => response.json())
